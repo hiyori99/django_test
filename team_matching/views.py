@@ -12,5 +12,10 @@ def index(request):
 def brian(request):
   return  HttpResponse("Hello, Brian")
 
+# def greet(request, name):
+#   return HttpResponse(f"Hello, {name.capitalize()}!") #名前の先頭を大文字にする
+
 def greet(request, name):
-  return HttpResponse(f"Hello, {name.capitalize()}!") #名前の先頭を大文字にする
+  return render(request, "hello/greet.html", {
+    "name": name.capitalize() 
+  }) #名前の先頭を大文字にする
